@@ -173,4 +173,179 @@ window.addEventListener('scroll', () => {
             element.style.transform = 'translateY(0)';
         }
     });
+});
+
+// Add animation to hero stats
+const statCards = document.querySelectorAll('.stat-card');
+statCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease';
+});
+
+// Add animation to trending cards
+const trendingCards = document.querySelectorAll('.trending-card');
+trendingCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateX(-20px)';
+    card.style.transition = 'all 0.5s ease';
+});
+
+// Add animation to step cards
+const stepCards = document.querySelectorAll('.step-card');
+stepCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease';
+});
+
+// Add animation to testimonial cards
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+testimonialCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateX(20px)';
+    card.style.transition = 'all 0.5s ease';
+});
+
+// Enhanced scroll reveal animation
+window.addEventListener('scroll', () => {
+    const elements = document.querySelectorAll(
+        '.feature-card, .category-card, .stat-card, .trending-card, .step-card, .testimonial-card'
+    );
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        if (elementTop < window.innerHeight && elementBottom > 0) {
+            element.style.opacity = '1';
+            element.style.transform = 'translate(0)';
+            
+            // Add glow effect to feature cards
+            if (element.classList.contains('feature-card')) {
+                element.style.animation = 'glow 2s ease-in-out infinite';
+            }
+            
+            // Add hover effect to trending cards
+            if (element.classList.contains('trending-card')) {
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'translateY(-10px)';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = 'translateY(0)';
+                });
+            }
+        }
+    });
+});
+
+// Add auto-scroll to trending slider
+const trendingSlider = document.querySelector('.trending-slider');
+let scrollPosition = 0;
+
+function autoScrollTrending() {
+    scrollPosition += 1;
+    if (scrollPosition >= trendingSlider.scrollWidth - trendingSlider.clientWidth) {
+        scrollPosition = 0;
+    }
+    trendingSlider.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+}
+
+setInterval(autoScrollTrending, 3000);
+
+// Add hover effect to app buttons
+const appButtons = document.querySelectorAll('.app-store, .play-store');
+appButtons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        button.style.transform = 'translateY(-5px)';
+        button.style.boxShadow = '0 5px 15px rgba(0, 255, 135, 0.3)';
+    });
+    
+    button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = 'none';
+    });
+});
+
+// Add parallax effect to hero section
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+});
+
+// Add typing animation to testimonials
+const testimonialTexts = document.querySelectorAll('.testimonial-content p');
+let currentTestimonial = 0;
+
+function typeTestimonial() {
+    const text = testimonialTexts[currentTestimonial];
+    const fullText = text.getAttribute('data-text') || text.textContent;
+    text.setAttribute('data-text', fullText);
+    text.textContent = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < fullText.length) {
+            text.textContent += fullText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        } else {
+            setTimeout(() => {
+                text.textContent = '';
+                currentTestimonial = (currentTestimonial + 1) % testimonialTexts.length;
+                typeTestimonial();
+            }, 3000);
+        }
+    };
+    
+    typeWriter();
+}
+
+// Start testimonial typing animation
+if (testimonialTexts.length > 0) {
+    typeTestimonial();
+}
+
+// Add particle effect to step cards
+stepCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        createParticles(card);
+    });
+});
+
+// Enhanced particle effect
+function createParticles(element) {
+    const particles = document.createElement('div');
+    particles.className = 'particles';
+    element.appendChild(particles);
+    
+    for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.setProperty('--tx', (Math.random() - 0.5) * 100 + 'px');
+        particle.style.setProperty('--ty', (Math.random() - 0.5) * 100 + 'px');
+        particles.appendChild(particle);
+    }
+    
+    setTimeout(() => {
+        particles.remove();
+    }, 1000);
+}
+
+// Add loading animation to images
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+    img.style.opacity = '0';
+    img.style.transition = 'opacity 0.5s ease';
+    
+    img.onload = () => {
+        img.style.opacity = '1';
+    };
 }); 
