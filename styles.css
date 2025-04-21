@@ -40,6 +40,7 @@ nav {
     font-weight: 700;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
 }
@@ -50,26 +51,34 @@ nav {
     gap: 2.5rem;
 }
 
-.nav-links a {
-    text-decoration: none;
+.nav-links li a {
     color: #fff;
+    text-decoration: none;
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    background: linear-gradient(45deg, #00ff87, #60efff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.nav-links a::after {
+.nav-links li a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
     width: 0;
     height: 2px;
+    bottom: -5px;
+    left: 0;
     background: linear-gradient(45deg, #00ff87, #60efff);
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links li a:hover {
+    transform: scale(1.05);
+}
+
+.nav-links li a:hover::after {
     width: 100%;
 }
 
@@ -147,6 +156,7 @@ nav {
     margin-bottom: 1.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 30px rgba(0, 255, 135, 0.3);
 }
@@ -256,6 +266,7 @@ nav {
     font-size: 3rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
 }
@@ -273,6 +284,7 @@ nav {
     font-size: 2.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -346,6 +358,7 @@ footer {
     margin-bottom: 1.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -607,6 +620,7 @@ footer {
     font-size: 2.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
 }
@@ -616,6 +630,7 @@ footer {
     margin-bottom: 0.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -773,6 +788,7 @@ footer {
     font-size: 2.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 1rem 0;
 }
