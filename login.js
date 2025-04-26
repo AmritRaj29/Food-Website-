@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show corresponding form
             forms.forEach(form => {
                 form.classList.remove('active');
-                if (form.id === `${targetTab}-form`) {
+                if (form.id === `${targetTab}Form`) {
                     form.classList.add('active');
                 }
             });
@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const phone = document.getElementById('loginPhone').value;
+            const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
+            const rememberMe = document.querySelector('#loginForm input[name="remember"]').checked;
 
             // Basic validation
-            if (phone.length !== 10) {
-                showError('Please enter a valid 10-digit phone number');
+            if (!validateEmail(email)) {
+                showError('Please enter a valid email address');
                 return;
             }
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Here you would typically make an API call to your backend
-            console.log('Login attempt:', { phone, password, rememberMe });
+            console.log('Login attempt:', { email, password, rememberMe });
             
             // Simulate successful login
             showSuccess('Login successful!');
@@ -85,14 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
             const phone = document.getElementById('signupPhone').value;
             const password = document.getElementById('signupPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            const acceptTerms = document.getElementById('acceptTerms').checked;
+            const acceptTerms = document.getElementById('signupForm input[name="terms"]').checked;
 
             // Validation
             if (name.length < 3) {
                 showError('Name must be at least 3 characters long');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showError('Please enter a valid email address');
                 return;
             }
 
@@ -117,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Here you would typically make an API call to your backend
-            console.log('Signup attempt:', { name, phone, password });
+            console.log('Signup attempt:', { name, email, phone, password });
             
             // Simulate successful signup
             showSuccess('Account created successfully!');
@@ -138,26 +144,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Helper functions
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
     function showError(message) {
         // Create error message element if it doesn't exist
         let errorElement = document.querySelector('.error-message');
         if (!errorElement) {
             errorElement = document.createElement('div');
             errorElement.className = 'error-message';
-            document.querySelector('.auth-box').prepend(errorElement);
+            document.querySelector('.auth-content').prepend(errorElement);
         }
         
         errorElement.textContent = message;
-        errorElement.style.color = '#ff4444';
-        errorElement.style.padding = '1rem';
-        errorElement.style.marginBottom = '1rem';
-        errorElement.style.backgroundColor = 'rgba(255, 68, 68, 0.1)';
-        errorElement.style.borderRadius = '10px';
-        errorElement.style.textAlign = 'center';
+        errorElement.classList.add('animate-in');
         
         // Remove error message after 3 seconds
         setTimeout(() => {
-            errorElement.remove();
+            errorElement.classList.add('animate-out');
+            setTimeout(() => {
+                errorElement.remove();
+            }, 500);
         }, 3000);
     }
 
@@ -167,20 +176,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!successElement) {
             successElement = document.createElement('div');
             successElement.className = 'success-message';
-            document.querySelector('.auth-box').prepend(successElement);
+            document.querySelector('.auth-content').prepend(successElement);
         }
         
         successElement.textContent = message;
-        successElement.style.color = '#00ff87';
-        successElement.style.padding = '1rem';
-        successElement.style.marginBottom = '1rem';
-        successElement.style.backgroundColor = 'rgba(0, 255, 135, 0.1)';
-        successElement.style.borderRadius = '10px';
-        successElement.style.textAlign = 'center';
+        successElement.classList.add('animate-in');
         
         // Remove success message after 3 seconds
         setTimeout(() => {
-            successElement.remove();
+            successElement.classList.add('animate-out');
+            setTimeout(() => {
+                successElement.remove();
+            }, 500);
         }, 3000);
     }
 }); 
