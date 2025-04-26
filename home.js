@@ -123,4 +123,131 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0)';
         });
     });
+
+    // Cart functionality
+    const cart = {
+        items: [],
+        total: 0,
+        addItem: function(item) {
+            const existingItem = this.items.find(i => i.id === item.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                this.items.push({...item, quantity: 1});
+            }
+            this.updateCart();
+        },
+        removeItem: function(itemId) {
+            this.items = this.items.filter(item => item.id !== itemId);
+            this.updateCart();
+        },
+        updateQuantity: function(itemId, newQuantity) {
+            const item = this.items.find(i => i.id === itemId);
+            if (item) {
+                item.quantity = newQuantity;
+                if (item.quantity <= 0) {
+                    this.removeItem(itemId);
+                }
+                this.updateCart();
+            }
+        },
+        calculateTotal: function() {
+            this.total = this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            return this.total;
+        },
+        updateCart: function() {
+            this.calculateTotal();
+            this.updateCartUI();
+            this.updateCartCount();
+        },
+        updateCartUI: function() {
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const totalAmountElement = document.querySelector('.total-amount');
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (this.items.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+                totalAmountElement.textContent = '₹0';
+                return;
+            }
+
+            this.items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <p>₹${item.price}</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus" onclick="cart.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn plus" onclick="cart.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                    </div>
+                    <button class="remove-item" onclick="cart.removeItem(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+
+            totalAmountElement.textContent = `₹${this.total}`;
+        },
+        updateCartCount: function() {
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'block' : 'none';
+        }
+    };
+
+    // Cart popup functionality
+    const cartPopup = {
+        open: function() {
+            document.querySelector('.cart-popup').classList.add('active');
+            document.querySelector('.cart-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        },
+        close: function() {
+            document.querySelector('.cart-popup').classList.remove('active');
+            document.querySelector('.cart-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cart icon click
+        document.querySelector('.cart-icon').addEventListener('click', cartPopup.open);
+        
+        // Close cart button
+        document.querySelector('.close-cart').addEventListener('click', cartPopup.close);
+        
+        // Overlay click
+        document.querySelector('.cart-overlay').addEventListener('click', cartPopup.close);
+        
+        // Checkout button
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            if (cart.items.length > 0) {
+                // Redirect to Zomato
+                window.location.href = 'https://www.zomato.com';
+            }
+        });
+
+        // Add to cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = {
+                    id: parseInt(this.dataset.id),
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    image: this.dataset.image
+                };
+                cart.addItem(item);
+                cartPopup.open();
+            });
+        });
+    });
 });
