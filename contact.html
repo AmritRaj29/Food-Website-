@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Flavour Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Flavour Express</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="user-actions">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contact-container">
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you</p>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Our Location</h3>
+                    <p>123 Food Street, City</p>
+                    <p>State, Country - 123456</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone Number</h3>
+                    <p>+91 1234567890</p>
+                    <p>+91 0987654321</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Address</h3>
+                    <p>support@flavourexpress.com</p>
+                    <p>info@flavourexpress.com</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Working Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
+                    <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="form-container">
+                <h2>Send us a Message</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.123456789012!2d77.12345678901234!3d12.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA3JzI0LjQiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I place an order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can place an order through our website or mobile app. Simply browse the menu, select your items, and proceed to checkout.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What are your delivery hours?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We deliver from 11:00 AM to 11:00 PM every day. Some restaurants may have different operating hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I track my order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can track your order in real-time through our website or mobile app. You'll receive updates at every stage of the delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards, debit cards, UPI, and cash on delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Flavour Express</h3>
+                <p>Delivering happiness to your doorstep</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                    <li><i class="fas fa-envelope"></i> support@flavourexpress.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Flavour Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html> 
