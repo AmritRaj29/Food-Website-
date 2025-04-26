@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Flavour Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Flavour Express</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="user-actions">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="menu-container">
+        <!-- Menu Categories -->
+        <section class="menu-categories">
+            <h2>Our Menu</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="starters">Starters</button>
+                <button class="filter-btn" data-category="main-course">Main Course</button>
+                <button class="filter-btn" data-category="desserts">Desserts</button>
+                <button class="filter-btn" data-category="beverages">Beverages</button>
+            </div>
+        </section>
+
+        <!-- Menu Items Grid -->
+        <section class="menu-items">
+            <div class="menu-grid">
+                <!-- Starter Items -->
+                <div class="menu-item" data-category="starters">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Spring Rolls">
+                    </div>
+                    <div class="item-info">
+                        <h3>Spring Rolls</h3>
+                        <p>Crispy vegetable spring rolls with sweet chili sauce</p>
+                        <div class="item-price">₹199</div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Main Course Items -->
+                <div class="menu-item" data-category="main-course">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Butter Chicken">
+                    </div>
+                    <div class="item-info">
+                        <h3>Butter Chicken</h3>
+                        <p>Tender chicken in rich tomato and butter sauce</p>
+                        <div class="item-price">₹399</div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Dessert Items -->
+                <div class="menu-item" data-category="desserts">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Chocolate Lava Cake">
+                    </div>
+                    <div class="item-info">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm chocolate cake with molten center</p>
+                        <div class="item-price">₹249</div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Beverage Items -->
+                <div class="menu-item" data-category="beverages">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Mango Lassi">
+                    </div>
+                    <div class="item-info">
+                        <h3>Mango Lassi</h3>
+                        <p>Sweet yogurt drink with mango pulp</p>
+                        <div class="item-price">₹149</div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Flavour Express</h3>
+                <p>Delivering happiness to your doorstep</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                    <li><i class="fas fa-envelope"></i> support@flavourexpress.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Flavour Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html> 
