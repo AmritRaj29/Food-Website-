@@ -1,5 +1,4 @@
-/* Auth Container Styles */
-
+ /* Auth Container Styles */
 .auth-container {
     min-height: 100vh;
     display: flex;
@@ -67,7 +66,7 @@
     font-size: 2rem;
     margin-bottom: 0.5rem;
     background: linear-gradient(45deg, #00ff87, #60efff);
-    /* added */
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
