@@ -1,0 +1,21 @@
+{
+  "name": "food-website-",
+  "version": "1.0.0",
+  "description": "A full-featured online food ordering platform where users can browse restaurants, view menus, and place orders for delivery or pickup.",
+  "main": "about.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmritRaj29/Food-Website-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmritRaj29/Food-Website-/issues"
+  },
+  "homepage": "https://github.com/AmritRaj29/Food-Website-#readme"
+}
